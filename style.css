@@ -58,13 +58,6 @@ nav a {
   text-align: center;
 }
 
-.full {
-  position: absolute;
-  bottom: 30%;              /* Distance from bottom */
-  right: 10%;               /* Distance from right */
-  text-align: middle;         /* Align text to the right */
-  max-width: 400px;          /* Prevent super wide text */
-}
 
 
 section {
@@ -223,6 +216,6 @@ footer {
   margin: 25px auto;
   max-width: 700px;
   border-radius: 8px;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
+ /* text-justify: inter-word;*/
 }
