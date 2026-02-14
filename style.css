@@ -25,15 +25,12 @@
 
 html {
   scroll-behavior: smooth;
-  
-  overflow-x: hidden; 
 }
 
 body {
-  background: #140f0d; /* Matching background to prevent white flashes */
+  background: none;
   color: var(--text-dark);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 /* ===========================
@@ -46,7 +43,6 @@ body {
   width: 100%;
   background: var(--bg-nav);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); 
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -107,10 +103,10 @@ nav a.active {
 }
 
 /* ===========================
-   HERO SECTION (FIXED FOR MOBILE)
+   HERO SECTION
 =========================== */
 .sub-header-home {
-  height: 100vh; 
+  height: 100dvh; 
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -119,13 +115,9 @@ nav a.active {
   
   /* Flexbox Alignment */
   display: flex; 
-  justify-content: center; 
-  align-items: flex-end;    
-  padding-bottom: 15vh;   
-  
-
-  background-attachment: scroll; 
-  will-change: transform;
+  justify-content: center; /* Horizontal Center */
+  align-items: flex-end;    /* Vertical Bottom */
+  padding-bottom: 15dvh;   /* Adjusts height of text from bottom edge */
 }
 
 .hero-lettering {
@@ -163,7 +155,6 @@ section {
   color: var(--secondary-color);
   padding: 90px 10%;
   text-align: center;
-  background-color: #140f0d; 
 }
 
 section h2 {
@@ -313,7 +304,7 @@ footer {
     top: 100%;
     left: 0;
     width: max-content;      
-    min-width: 120px;               
+    min-width: 120px;             
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   }
 
@@ -326,16 +317,14 @@ footer {
   }
 
   .sub-header-home {
-    
-    height: 100vh; 
-    padding-bottom: 60px; 
-    align-items: flex-end;
-
-    background-position: center 80%; 
+    height: 85dvh; 
+    padding-bottom: 40px; /* Specific distance for smaller screens */
+    align-items: flex-end; /* Keeps it at bottom on mobile */
   }
 
   .hero-lettering {
     width: 95%;
+    /* Resetting any previous absolute/transform hacks */
     position: static; 
     transform: none;
   }
