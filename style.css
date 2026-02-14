@@ -112,7 +112,7 @@ nav a.active {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  background-image: banner_BM.jpg 
+  background-image: url("banner_BM.jpg"); 
   position: relative;
   display: flex;
   justify-content: center;
@@ -326,4 +326,6 @@ footer {
   }
 
   nav ul li:not(:first-child)::before {
-    display: none
+    display: none;
+  }
+}
