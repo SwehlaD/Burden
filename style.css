@@ -31,7 +31,8 @@ body {
   background: none;
   color: var(--text-dark);
   line-height: 1.6;
-  padding-top: 0px;
+  padding: 0; /* remove top gap */
+  margin: 0;  /* remove default margin */
 }
 
 /* ===========================
@@ -108,17 +109,18 @@ nav a.active {
 =========================== */
 .sub-header-home {
   height: 100vh;
-  height: 100dvh; 
-  background-image: url("banner_BM.jpg"); 
+  height: 100dvh; /* modern viewport height for mobile */
+  background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  background-attatchment: fixed;
+  background-attachment: fixed; /* corrected typo */
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-bottom: 60px;
+  align-items: center; /* center vertically */
+  margin: 0;
+  padding-bottom: 60px; /* optional spacing from bottom */
 }
 
 .hero-lettering {
@@ -131,6 +133,7 @@ nav a.active {
   text-align: center;
   max-width: 90%;
   width: 60vw;
+  transform: translateY(-60px); /* move lettering up */
 }
 
 .hero-lettering h1,
@@ -139,7 +142,7 @@ nav a.active {
 }
 
 .hero-lettering h1 {
-  font-family: 'Cormorant Garamond', serif; 
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -310,7 +313,7 @@ footer {
 
   nav ul {
     display: none;
-    align-items: flex-start; 
+    align-items: flex-start;
     flex-direction: column;
     gap: 0;
     background: var(--bg-nav-mobile);
@@ -327,5 +330,17 @@ footer {
 
   nav ul li:not(:first-child)::before {
     display: none;
+  }
+
+  /* Hero lettering adjustment for mobile */
+  .hero-lettering {
+    transform: translateY(-30px);
+    width: 90%;
+  }
+
+  .sub-header-home {
+    height: 80vh; /* smaller hero on mobile */
+    padding-bottom: 20px;
+    align-items: center;
   }
 }
