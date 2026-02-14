@@ -121,7 +121,7 @@ nav a.active {
 
 .hero-lettering {
   position: absolute; 
-  bottom: 10%;
+  bottom: 40px;
   left:50%;
   display: flex;
   flex-direction: column;
