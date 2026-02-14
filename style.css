@@ -134,6 +134,10 @@ section {
   padding: 90px 10%;
   text-align: center;
 }
+
+.section h3 {
+   color: #ffd36b;
+}
 .Quote{
    font-style: italic;
 }
