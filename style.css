@@ -124,15 +124,17 @@ nav a.active {
 }
 
 .hero-lettering {
+  position: absolute; 
+  bottom: 25%;
+  left:50%;
+  transform: translateX(-50%); 
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0;
   font-family: var(--font-heading);
   color: var(--secondary-color);
   text-align: center;
   max-width: 90%;
-  width: 60vw;
 }
 
 .hero-lettering h1,
