@@ -23,6 +23,7 @@ body {
 /* ===========================
    Fixed Banner Navigation
 =========================== */
+/* Header & nav */
 .sub-header-home nav {
   position: fixed;
   top: 0;
@@ -35,12 +36,12 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  height: 56px; /* consistent height */
+  height: 56px;
 }
 
 /* Hamburger / menu toggle */
 .menu-toggle {
-  display: none; /* show with media query for mobile */
+  display: none; /* show with media query on mobile */
   font-size: 1.5rem;
   cursor: pointer;
   color: #ffd36b;
@@ -49,7 +50,6 @@ body {
 /* Menu layout */
 nav ul {
   display: flex;
-  gap: 12px;        /* clean spacing between items */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -60,20 +60,17 @@ nav ul {
 nav ul li {
   display: flex;
   align-items: center;
-  position: relative; /* for optional separator via pseudo-element */
+  position: relative;
 }
 
-/* Optional separator (if you want the line) */
+/* Vertical bar separator via pseudo-element */
 nav ul li:not(:first-child)::before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  height: 60%;
-  width: 1px;
-  background: #DFD6CC;
+  content: "|";
+  color: #DFD6CC;
+  margin: 0 8px; /* spacing around the bar */
 }
 
-/* Link */
+/* Link styling */
 nav a {
   display: flex;
   align-items: center;
@@ -97,6 +94,34 @@ nav a.active {
   background: rgba(255, 211, 107, 0.35);
   color: #1a1411;
 }
+
+/* Mobile toggle */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none; /* toggled via JS */
+    flex-direction: column;
+    gap: 0;
+    background: rgba(20,15,13,0.9);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 6px 6px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li:not(:first-child)::before {
+    display: none; /* hide | on mobile for clean look */
+  }
+}
+
 /* ===========================
    Hero Section
 =========================== */
@@ -297,13 +322,12 @@ footer {
    Mobile Styles
 =========================== */
 @media (max-width: 768px) {
-
-   .menu-toggle {
+ .menu-toggle {
     display: block;
   }
 
   nav ul {
-    display: none; /* toggle via JS */
+    display: none; /* toggled via JS */
     flex-direction: column;
     gap: 0;
     background: rgba(20,15,13,0.9);
@@ -319,9 +343,9 @@ footer {
   }
 
   nav ul li:not(:first-child)::before {
-    display: none; /* hide separator on mobile */
+    display: none; /* hide | on mobile for clean look */
   }
-
+}
   /* Sections */
   section {
     padding: 70px 6%;
