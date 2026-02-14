@@ -131,6 +131,11 @@ nav a.active {
   z-index: 2;
 }
 
+.hero-lettering h1,
+.hero-lettering p {
+  margin: 0;
+}
+
 .hero-lettering h1 {
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 600;
