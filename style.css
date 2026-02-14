@@ -27,7 +27,7 @@ nav {
   left: 0;
   width: 100%;
   padding: 15px 5%;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: flex-start;
   gap: 30px;
@@ -52,6 +52,9 @@ nav ul li + li::before {
 }
 
 nav a {
+  display: flex;
+  align-items: center;
+  height: 100%; 
   text-decoration: none;
   color: #ffd36b;
   font-weight: 600;
