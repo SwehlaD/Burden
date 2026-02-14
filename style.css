@@ -114,7 +114,6 @@ nav a.active {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  background-attachment: fixed;
   position: relative;
   display: flex;
   justify-content: center;
