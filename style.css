@@ -1,0 +1,245 @@
+/* ===========================
+   Global Styles
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: none;
+  color: #f3eee9;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Navigation
+=========================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  background: rgba(20, 15, 13, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+nav ul li + li::before {
+  content: "|";
+  margin: 0 12px;
+  color: #DFD6CC;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffd36b;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 211, 107, 0.25);
+  color: #1a1411;
+  transform: translateY(-1px);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #ffd36b;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+.sub-header-home {
+  height: 100vh;
+  background-color: #130F0D;
+  background-image: url("banner_BM.jpg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+
+.hero-lettering {
+  font-family: 'Cormorant Garamond', serif;
+  color: #f3eee9;
+  text-align: center;
+  max-width: 90%;
+  width: 60vw;
+}
+
+.hero-lettering h1 {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  margin-bottom: 3px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-lettering p {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  color: #f3eee9;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* ===========================
+   Sections
+=========================== */
+section {
+  color: #f3eee9;
+  padding: 90px 10%;
+  text-align: center;
+}
+
+.release-card, .devotion {
+  background: rgba(20,15,13,0.85);
+  padding: 20px;
+  margin: 25px auto;
+  border-radius: 8px;
+  max-width: 700px;
+  text-align: left;
+}
+
+.release-card h3 {
+  margin-bottom: 10px;
+}
+
+.platforms {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.platforms a {
+  position: relative;
+  margin-top: 20px;
+  padding: 12px 30px;
+  color: #f3eee9;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  background: linear-gradient(145deg, #957A69, #705849 60%, #3b281c);
+  box-shadow: 0 4px 10px rgba(40,25,18,0.5),
+              inset 0 2px 4px rgba(255,255,255,0.3),
+              inset 0 -3px 6px rgba(0,0,0,0.25);
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.platforms a:hover {
+  color: #1a1411;
+  background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(40,25,18,0.6),
+              inset 0 2px 5px rgba(255,255,255,0.6),
+              inset 0 -3px 6px rgba(0,0,0,0.25);
+}
+
+.platforms a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,255,255,0.25), transparent);
+  transform: skewX(-20deg);
+}
+
+.platforms a:hover::before {
+  animation: shine 0.8s ease forwards;
+}
+
+@keyframes shine { to { left: 130%; } }
+
+.platforms a:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(40,25,18,0.5),
+              inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Devotion Styling */
+.devotion h2, .devotion h3 {
+  color: #ffd36b;
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+  color: #f3eee9;
+  padding: 30px;
+  background: #140f0d;
+}
+
+/* ===========================
+   Mobile Styles
+=========================== */
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 5%;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background: rgba(20, 15, 13, 0.9);
+    padding: 15px 0;
+    z-index: 999;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li + li::before { content: none; }
+
+  .menu-toggle { display: block; }
+
+  section { padding: 70px 6%; }
+
+  .sub-header-home { height: 80vh; padding-bottom: 20px; }
+  .hero-lettering { width: 90%; padding: 0; }
+}
+
