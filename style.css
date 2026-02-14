@@ -304,8 +304,9 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px;
-    border-radius: 0 0 6px 6px;
+    width: max-content;      
+    min-width: 120px;             
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   }
 
   nav ul.show {
