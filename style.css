@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Default font for all text */
 }
 
 html {
@@ -14,12 +14,12 @@ html {
 
 body {
   background: none;
-  color: #f3eee9;
+  color: #191410;
   line-height: 1.6;
 }
 
 /* ===========================
-   Navigation
+   Fixed Banner Navigation
 =========================== */
 nav {
   position: fixed;
@@ -31,9 +31,9 @@ nav {
   align-items: center;
   justify-content: flex-start;
   gap: 30px;
-  background: rgba(20, 15, 13, 0.7);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
+  background: rgba(20, 15, 13, 0.7); /* semi-transparent banner */
+  backdrop-filter: blur(6px);        /* frosted effect */
+  z-index: 1000;                     /* stays on top */
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -78,11 +78,24 @@ nav a:hover {
 =========================== */
 .sub-header-home {
   height: 100vh;
-  background-color: #130F0D;
+  background-color: #130F0D;        
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+.sub-header {
+  height: 100vh;
+  background-color: #130F0D;        
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -90,7 +103,7 @@ nav a:hover {
 }
 
 .hero-lettering {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', serif; /* Hero font */
   color: #f3eee9;
   text-align: center;
   max-width: 90%;
@@ -99,6 +112,7 @@ nav a:hover {
 
 .hero-lettering h1 {
   font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-family: 'Cormorant Garamond', serif;
   margin-bottom: 3px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -120,18 +134,23 @@ section {
   padding: 90px 10%;
   text-align: center;
 }
+.Quote{
+   font-style: italic;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
 
-.release-card, .devotion {
+.card,
+.release-card {
   background: rgba(20,15,13,0.85);
   padding: 20px;
   margin: 25px auto;
   border-radius: 8px;
-  max-width: 700px;
-  text-align: left;
-}
-
-.release-card h3 {
-  margin-bottom: 10px;
+  max-width: 600px;
 }
 
 .platforms {
@@ -150,10 +169,13 @@ section {
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
+  border: none;
+  cursor: pointer;
   background: linear-gradient(145deg, #957A69, #705849 60%, #3b281c);
-  box-shadow: 0 4px 10px rgba(40,25,18,0.5),
-              inset 0 2px 4px rgba(255,255,255,0.3),
-              inset 0 -3px 6px rgba(0,0,0,0.25);
+  box-shadow:
+    0 4px 10px rgba(40,25,18,0.5),
+    inset 0 2px 4px rgba(255,255,255,0.3),
+    inset 0 -3px 6px rgba(0,0,0,0.25);
   overflow: hidden;
   transition: all 0.35s ease;
 }
@@ -162,9 +184,10 @@ section {
   color: #1a1411;
   background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(40,25,18,0.6),
-              inset 0 2px 5px rgba(255,255,255,0.6),
-              inset 0 -3px 6px rgba(0,0,0,0.25);
+  box-shadow:
+    0 6px 14px rgba(40,25,18,0.6),
+    inset 0 2px 5px rgba(255,255,255,0.6),
+    inset 0 -3px 6px rgba(0,0,0,0.25);
 }
 
 .platforms a::before {
@@ -174,7 +197,12 @@ section {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,255,255,0.25), transparent);
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.7),
+    rgba(255,255,255,0.25),
+    transparent
+  );
   transform: skewX(-20deg);
 }
 
@@ -182,16 +210,39 @@ section {
   animation: shine 0.8s ease forwards;
 }
 
-@keyframes shine { to { left: 130%; } }
+@keyframes shine {
+  to { left: 130%; }
+}
 
 .platforms a:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 6px rgba(40,25,18,0.5),
-              inset 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow:
+    0 2px 6px rgba(40,25,18,0.5),
+    inset 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Devotion Styling */
-.devotion h2, .devotion h3 {
+/* ===========================
+   Text & Devotions
+=========================== */
+.text {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+}
+
+.devotion {
+  background: rgba(20, 15, 13, 0.88);
+  color: #f5efe9;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 700px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.devotion h1,
+.devotion h2,
+.devotion h3 {
   color: #ffd36b;
 }
 
@@ -209,6 +260,7 @@ footer {
 =========================== */
 @media (max-width: 768px) {
 
+  /* Nav */
   nav {
     flex-direction: row;
     justify-content: space-between;
@@ -219,6 +271,7 @@ footer {
 
   nav ul {
     display: none;
+    align-items:flex-start;
     flex-direction: column;
     gap: 15px;
     position: absolute;
@@ -233,13 +286,37 @@ footer {
     display: flex;
   }
 
-  nav ul li + li::before { content: none; }
+  nav ul li {
+    padding: 10px 0;
+    text-align: center;
+  }
+  nav ul li + li::before {
+    content: none;
+  }
 
-  .menu-toggle { display: block; }
+  .menu-toggle {
+    display: block;
+  }
 
-  section { padding: 70px 6%; }
+  /* Sections */
+  section {
+    padding: 70px 6%;
+  }
 
-  .sub-header-home { height: 80vh; padding-bottom: 20px; }
-  .hero-lettering { width: 90%; padding: 0; }
+  /* Hero */
+  .sub-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80vh;
+    padding-bottom: 20px;
+  }
+
+  .hero-lettering {
+    position: static;
+    transform: none;
+    width: 90%;
+    padding: 0;
+  }
 }
-
