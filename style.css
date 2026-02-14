@@ -106,7 +106,7 @@ nav a.active {
 /* ===========================
    HERO SECTION
 =========================== */
-.sub-header-home, .sub-header {
+.sub-header-home {
   height: 100vh;
   background-color: #130F0D;
   background-repeat: no-repeat;
