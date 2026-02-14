@@ -139,6 +139,7 @@ nav a.active {
 }
 
 .hero-lettering h1 {
+  font-family: 'Cormorant Garamond', serif; 
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: 0.08em;
