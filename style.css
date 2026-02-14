@@ -309,12 +309,13 @@ footer {
 
   nav ul {
     display: none;
+    align-items: flex-start; 
     flex-direction: column;
     gap: 0;
     background: var(--bg-nav-mobile);
     position: absolute;
     top: 100%;
-    right: 0;
+    left: 0;
     width: 200px;
     border-radius: 0 0 6px 6px;
   }
