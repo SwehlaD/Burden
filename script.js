@@ -2,33 +2,36 @@
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
-toggle.addEventListener("click", (e) => {
-  e.stopPropagation(); // don't let click bubble to document
+toggle.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
 
-// Close menu if clicking outside nav (only on mobile)
-document.addEventListener("click", (e) => {
-  if (navLinks.classList.contains("show") && !navLinks.contains(e.target) && e.target !== toggle) {
-    navLinks.classList.remove("show");
+// Close menu if click outside
+document.addEventListener('click', e => {
+  const nav = document.querySelector('nav');
+  if (!nav.contains(e.target)) {
+    navLinks.classList.remove('show');
   }
 });
 
-// Smooth scroll and close mobile menu
-const navItems = navLinks.querySelectorAll("a");
-navItems.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault(); // prevent default jump
-    const targetId = link.getAttribute("href").substring(1); // remove #
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+// Smooth scroll with header offset
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
 
-    // close mobile menu after scroll
-    if (navLinks.classList.contains("show")) {
-      navLinks.classList.remove("show");
-    }
+    const headerOffset = document.querySelector('nav').offsetHeight;
+    const elementPosition = target.getBoundingClientRect().top;
+    const offsetPosition = window.scrollY + elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
+    navLinks.classList.remove('show');
   });
 });
 
