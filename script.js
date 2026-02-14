@@ -2,8 +2,24 @@
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
-toggle.addEventListener("click", () => {
+toggle.addEventListener("click", (e) => {
+  e.stopPropagation(); // prevent click from bubbling to document
   navLinks.classList.toggle("show");
+});
+
+// Close menu if clicking outside nav
+document.addEventListener("click", (e) => {
+  if (navLinks.classList.contains("show") && !navLinks.contains(e.target) && e.target !== toggle) {
+    navLinks.classList.remove("show");
+  }
+});
+
+// Close menu when clicking a nav link
+const navItems = navLinks.querySelectorAll("a");
+navItems.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
 });
 
 // ========================= BACKGROUND GRADIENT =========================
