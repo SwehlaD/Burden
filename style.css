@@ -115,11 +115,8 @@ nav a.active {
   background-position: center bottom;
   background-size: cover;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; 
   margin: 0;
-  padding-bottom: 40px; 
+  padding-bottom: 0; 
 }
 
 .hero-lettering {
@@ -336,6 +333,7 @@ footer {
   .hero-lettering {
     transform: translateY(-30px);
     width: 90%;
+    bottom: 15%; 
   }
 
   .sub-header-home {
