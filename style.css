@@ -132,7 +132,6 @@ nav a.active {
 }
 
 .hero-lettering h1 {
-  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -304,9 +303,8 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    width: max-content;      
-    min-width: 120px;             
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    width: 200px;
+    border-radius: 0 0 6px 6px;
   }
 
   nav ul.show {
