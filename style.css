@@ -27,53 +27,56 @@ nav {
   left: 0;
   width: 100%;
   padding: 15px 5%;
-  display: block;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 30px;
-  background: rgba(20, 15, 13, 0.7); /* semi-transparent banner */
-  backdrop-filter: blur(6px);        /* frosted effect */
-  z-index: 1000;                     /* stays on top */
+  background: rgba(20, 15, 13, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Menu layout */
 nav ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 20px;
 }
 
-nav ul li + li::before {
-  content: "|";
-  margin: 0 12px;
-  color: #DFD6CC;
+/* Menu item */
+nav ul li {
+  display: flex;
+  align-items: center;
 }
 
+/* Separator */
+nav ul li + li {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid #DFD6CC;
+}
+
+/* Link */
 nav a {
   display: flex;
   align-items: center;
-  height: 100%; 
+  padding: 8px 16px;
   text-decoration: none;
   color: #ffd36b;
   font-weight: 600;
-  padding: 8px 16px;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-nav a:hover {
+/* Hover effect (full box) */
+nav ul li:hover a {
   background: rgba(255, 211, 107, 0.25);
   color: #1a1411;
   transform: translateY(-1px);
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: #ffd36b;
+/* Active page state (optional but nice) */
+nav a.active {
+  background: rgba(255, 211, 107, 0.35);
+  color: #1a1411;
 }
 
 /* ===========================
