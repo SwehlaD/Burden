@@ -108,11 +108,12 @@ nav a.active {
 =========================== */
 .sub-header-home {
   height: 100vh;
-  background-color: #130F0D;
+  height: 100dvh; 
+  background-image: url("banner_BM.jpg"); 
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  background-image: url("banner_BM.jpg"); 
+  background-attatchment: fixed;
   position: relative;
   display: flex;
   justify-content: center;
