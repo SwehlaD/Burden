@@ -115,11 +115,8 @@ nav a.active {
   background-position: center bottom;
   background-size: cover;
   position: relative;
-  margin: 0;
-  padding-bottom: 0;
-  display: flex;
+  display: flex; 
   justify-content: center;
-  align-items: flex-end; 
 }
 
 .hero-lettering {
