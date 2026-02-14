@@ -31,8 +31,6 @@ body {
   background: none;
   color: var(--text-dark);
   line-height: 1.6;
-  padding: 0; /* remove top gap */
-  margin: 0;  /* remove default margin */
 }
 
 /* ===========================
@@ -108,18 +106,18 @@ nav a.active {
    HERO SECTION
 =========================== */
 .sub-header-home {
-  height: 100dvh;
+  height: 100dvh; 
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
+  position: relative;
   
-  /* Flexbox */
+  /* Flexbox Alignment */
   display: flex; 
-  justify-content: center; /* Horizontal center */
-  align-items: flex-end;    /* Vertical bottom */
-  padding-bottom: 20vh; /* Adjust this to move it up from the very edge */
-  padding-bottom: 20dvh; 
+  justify-content: center; /* Horizontal Center */
+  align-items: flex-end;    /* Vertical Bottom */
+  padding-bottom: 15dvh;   /* Adjusts height of text from bottom edge */
 }
 
 .hero-lettering {
@@ -128,22 +126,18 @@ nav a.active {
   gap: 0.5rem;   
   font-family: var(--font-heading);
   color: var(--secondary-color);
-  text-align: center;     
+  text-align: center;      
   max-width: 90%;
-}
-
-.hero-lettering h1,
-.hero-lettering p {
-  margin: 0;
+  z-index: 2;
 }
 
 .hero-lettering h1 {
-  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.05;
+  margin: 0;
 }
 
 .hero-lettering p {
@@ -151,6 +145,7 @@ nav a.active {
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1.2;
+  margin: 0;
 }
 
 /* ===========================
@@ -252,13 +247,6 @@ section h2 {
   animation: shine 0.8s ease forwards;
 }
 
-.platforms a:active {
-  transform: translateY(1px);
-  box-shadow:
-    0 2px 6px rgba(40,25,18,0.5),
-    inset 0 2px 4px rgba(0,0,0,0.3);
-}
-
 @keyframes shine {
   to { left: 130%; }
 }
@@ -302,7 +290,6 @@ footer {
    MOBILE STYLES
 =========================== */
 @media (max-width: 768px) {
-
   .menu-toggle {
     display: block;
   }
@@ -328,16 +315,16 @@ footer {
     display: none;
   }
 
-  /* Hero lettering adjustment for mobile */
-  .hero-lettering {
-    transform: translateY(-30px);
-    width: 90%;
-    bottom: 10%; 
+  .sub-header-home {
+    height: 85dvh; 
+    padding-bottom: 40px; /* Specific distance for smaller screens */
+    align-items: flex-end; /* Keeps it at bottom on mobile */
   }
 
-  .sub-header-home {
-    height: 80vh; /* smaller hero on mobile */
-    padding-bottom: 20px;
-    align-items: center;
+  .hero-lettering {
+    width: 95%;
+    /* Resetting any previous absolute/transform hacks */
+    position: static; 
+    transform: none;
   }
 }
