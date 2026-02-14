@@ -119,7 +119,7 @@ nav a.active {
 .hero-lettering h1 {
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-family: 'Cormorant Garamond', serif;
-  margin-bottom: 3px;
+  margin-bottom: -10px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -130,6 +130,7 @@ nav a.active {
   color: #f3eee9;
   font-weight: 400;
   letter-spacing: 0.04em;
+  margin-top: -10px; 
 }
 
 /* ===========================
@@ -141,8 +142,10 @@ section {
   text-align: center;
 }
 
-.section h2 {
+section h2 {
    color: #ffd36b;
+   margin-bottom: 20px;
+   font-weight: 700;
 }
 .Quote{
    font-style: italic;
