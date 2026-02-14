@@ -3,22 +3,32 @@ const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
 toggle.addEventListener("click", (e) => {
-  e.stopPropagation(); // prevent click from bubbling to document
+  e.stopPropagation(); // don't let click bubble to document
   navLinks.classList.toggle("show");
 });
 
-// Close menu if clicking outside nav
+// Close menu if clicking outside nav (only on mobile)
 document.addEventListener("click", (e) => {
   if (navLinks.classList.contains("show") && !navLinks.contains(e.target) && e.target !== toggle) {
     navLinks.classList.remove("show");
   }
 });
 
-// Close menu when clicking a nav link
+// Smooth scroll and close mobile menu
 const navItems = navLinks.querySelectorAll("a");
 navItems.forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("show");
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // prevent default jump
+    const targetId = link.getAttribute("href").substring(1); // remove #
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // close mobile menu after scroll
+    if (navLinks.classList.contains("show")) {
+      navLinks.classList.remove("show");
+    }
   });
 });
 
