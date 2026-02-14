@@ -109,28 +109,35 @@ nav a.active {
 }
 
 .hero-lettering {
-  font-family: 'Cormorant Garamond', serif; /* Hero font */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* keeps text centered */
+  gap: 0;                /* no extra spacing */
+  font-family: 'Cormorant Garamond', serif;
   color: #f3eee9;
   text-align: center;
   max-width: 90%;
   width: 60vw;
 }
 
+.hero-lettering h1,
+.hero-lettering p {
+  margin: 0;             /* kill browser defaults */
+}
+
 .hero-lettering h1 {
   font-size: clamp(1.8rem, 4vw, 3.5rem);
-  font-family: 'Cormorant Garamond', serif;
-  margin-bottom: -10px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1.05;     /* replaces negative margin feel */
 }
 
 .hero-lettering p {
   font-size: clamp(1rem, 4vw, 1.5rem);
-  color: #f3eee9;
   font-weight: 400;
   letter-spacing: 0.04em;
-  margin-top: -10px; 
+  line-height: 1.2;
 }
 
 /* ===========================
