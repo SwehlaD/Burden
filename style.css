@@ -1,11 +1,26 @@
 /* ===========================
-   Global Styles
+   CSS VARIABLES
+=========================== */
+:root {
+  --primary-color: #ffd36b;
+  --secondary-color: #f3eee9;
+  --text-dark: #191410;
+  --bg-dark: rgba(20, 15, 13, 0.85);
+  --bg-dark-light: rgba(20, 15, 13, 0.88);
+  --bg-nav: rgba(20, 15, 13, 0.7);
+  --bg-nav-mobile: rgba(20, 15, 13, 0.9);
+  --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Cormorant Garamond', serif;
+}
+
+/* ===========================
+   GLOBAL STYLES
 =========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif; /* Default font for all text */
+  font-family: var(--font-main);
 }
 
 html {
@@ -14,40 +29,38 @@ html {
 
 body {
   background: none;
-  color: #191410;
+  color: var(--text-dark);
   line-height: 1.6;
-  margin: 0;
-  padding-top: 80px; 
+  padding-top: 80px;
 }
 
 /* ===========================
-   Fixed Banner Navigation
+   NAVIGATION
 =========================== */
-/* Header & nav */
 .sub-header-home nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(20, 15, 13, 0.7);
+  background: var(--bg-nav);
   backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 0 1rem;
   height: 56px;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* Hamburger / menu toggle */
 .menu-toggle {
-  display: none; /* show with media query on mobile */
+  display: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #ffd36b;
+  color: var(--primary-color);
+  z-index: 1100;
 }
 
-/* Menu layout */
 nav ul {
   display: flex;
   list-style: none;
@@ -56,63 +69,46 @@ nav ul {
   align-items: center;
 }
 
-/* Menu item */
 nav ul li {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-/* Vertical bar separator */
 nav ul li:not(:first-child)::before {
   content: "|";
   color: #DFD6CC;
-  margin: 0 8px; /* spacing around the bar */
+  margin: 0 8px;
 }
 
-/* Link styling */
 nav a {
   display: flex;
   align-items: center;
   padding: 8px 16px;
   text-decoration: none;
-  color: #ffd36b;
+  color: var(--primary-color);
   font-weight: 600;
   border-radius: 6px;
   transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect */
 nav a:hover {
   background: rgba(255, 211, 107, 0.25);
   color: #1a1411;
   transform: translateY(-1px);
 }
 
-/* Active page state */
 nav a.active {
   background: rgba(255, 211, 107, 0.35);
   color: #1a1411;
 }
+
 /* ===========================
-   Hero Section
+   HERO SECTION
 =========================== */
-.sub-header-home {
+.sub-header-home, .sub-header {
   height: 100vh;
-  background-color: #130F0D;        
-  background-image: url("banner_BM.jpg");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 40px;
-}
-.sub-header {
-  height: 100vh;
-  background-color: #130F0D;        
+  background-color: #130F0D;
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
@@ -126,10 +122,10 @@ nav a.active {
 .hero-lettering {
   display: flex;
   flex-direction: column;
-  align-items: center;   
-  gap: 0;               
-  font-family: 'Cormorant Garamond', serif;
-  color: #f3eee9;
+  align-items: center;
+  gap: 0;
+  font-family: var(--font-heading);
+  color: var(--secondary-color);
   text-align: center;
   max-width: 90%;
   width: 60vw;
@@ -137,7 +133,7 @@ nav a.active {
 
 .hero-lettering h1,
 .hero-lettering p {
-  margin: 0;             
+  margin: 0;
 }
 
 .hero-lettering h1 {
@@ -145,7 +141,7 @@ nav a.active {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1.05;     
+  line-height: 1.05;
 }
 
 .hero-lettering p {
@@ -156,22 +152,27 @@ nav a.active {
 }
 
 /* ===========================
-   Sections
+   SECTIONS
 =========================== */
 section {
-  color: #f3eee9;
+  color: var(--secondary-color);
   padding: 90px 10%;
   text-align: center;
 }
 
 section h2 {
-   color: #ffd36b;
-   margin-bottom: 20px;
-   font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
 }
-.Quote{
-   font-style: italic;
+
+.Quote {
+  font-style: italic;
 }
+
+/* ===========================
+   GRID CARDS
+=========================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -181,13 +182,17 @@ section h2 {
 
 .card,
 .release-card {
-  background: rgba(20,15,13,0.85);
+  background: var(--bg-dark);
   padding: 20px;
   margin: 25px auto;
   border-radius: 8px;
   max-width: 600px;
+  transition: transform 0.2s ease;
 }
 
+/* ===========================
+   PLATFORM BUTTONS
+=========================== */
 .platforms {
   margin-top: 15px;
   display: flex;
@@ -200,7 +205,7 @@ section h2 {
   position: relative;
   margin-top: 20px;
   padding: 12px 30px;
-  color: #f3eee9;
+  color: var(--secondary-color);
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
@@ -213,16 +218,6 @@ section h2 {
     inset 0 -3px 6px rgba(0,0,0,0.25);
   overflow: hidden;
   transition: all 0.35s ease;
-}
-
-.platforms a:hover {
-  color: #1a1411;
-  background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 14px rgba(40,25,18,0.6),
-    inset 0 2px 5px rgba(255,255,255,0.6),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
 }
 
 .platforms a::before {
@@ -241,12 +236,18 @@ section h2 {
   transform: skewX(-20deg);
 }
 
-.platforms a:hover::before {
-  animation: shine 0.8s ease forwards;
+.platforms a:hover {
+  color: #1a1411;
+  background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 14px rgba(40,25,18,0.6),
+    inset 0 2px 5px rgba(255,255,255,0.6),
+    inset 0 -3px 6px rgba(0,0,0,0.25);
 }
 
-@keyframes shine {
-  to { left: 130%; }
+.platforms a:hover::before {
+  animation: shine 0.8s ease forwards;
 }
 
 .platforms a:active {
@@ -256,8 +257,12 @@ section h2 {
     inset 0 2px 4px rgba(0,0,0,0.3);
 }
 
+@keyframes shine {
+  to { left: 130%; }
+}
+
 /* ===========================
-   Text & Devotions
+   TEXT & DEVOTIONS
 =========================== */
 .text {
   max-width: 700px;
@@ -266,8 +271,8 @@ section h2 {
 }
 
 .devotion {
-  background: rgba(20, 15, 13, 0.88);
-  color: #f5efe9;
+  background: var(--bg-dark-light);
+  color: var(--secondary-color);
   padding: 25px;
   margin: 25px auto;
   max-width: 700px;
@@ -278,20 +283,21 @@ section h2 {
 .devotion h1,
 .devotion h2,
 .devotion h3 {
-  color: #ffd36b;
+  color: var(--primary-color);
 }
 
 /* ===========================
-   Footer
+   FOOTER
 =========================== */
 footer {
-  color: #f3eee9;
+  color: var(--secondary-color);
   padding: 30px;
   background: #140f0d;
+  text-align: center;
 }
 
 /* ===========================
-   Mobile Styles
+   MOBILE STYLES
 =========================== */
 @media (max-width: 768px) {
 
@@ -300,10 +306,10 @@ footer {
   }
 
   nav ul {
-    display: none; /* toggled via JS */
+    display: none;
     flex-direction: column;
     gap: 0;
-    background: rgba(20,15,13,0.9);
+    background: var(--bg-nav-mobile);
     position: absolute;
     top: 100%;
     right: 0;
@@ -316,28 +322,4 @@ footer {
   }
 
   nav ul li:not(:first-child)::before {
-    display: none; /* hide | on mobile for clean look */
-  }
-
-  /* Sections */
-  section {
-    padding: 70px 6%;
-  }
-
-  /* Hero */
-  .sub-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    height: 80vh;
-    padding-bottom: 20px;
-  }
-
-  .hero-lettering {
-    position: static;
-    transform: none;
-    width: 90%;
-    padding: 0;
-  }
-}
+    display: none
