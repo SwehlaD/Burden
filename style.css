@@ -108,26 +108,27 @@ nav a.active {
    HERO SECTION
 =========================== */
 .sub-header-home {
-  height: 100vh;
-  height: 100dvh; /* modern viewport height for mobile */
+  height: 100dvh;
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  position: relative;
+  
+  /* Flexbox */
   display: flex; 
-  justify-content: center;
+  justify-content: center; /* Horizontal center */
+  align-items: flex-end;    /* Vertical bottom */
+  padding-bottom: 20vh; /* Adjust this to move it up from the very edge */
+  padding-bottom: 20dvh; 
 }
 
 .hero-lettering {
-  position: absolute; 
-  bottom: 20%;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0.5rem;   
   font-family: var(--font-heading);
   color: var(--secondary-color);
-  text-align: center-bottom;
+  text-align: center;     
   max-width: 90%;
 }
 
