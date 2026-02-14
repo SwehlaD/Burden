@@ -23,7 +23,7 @@ body {
 /* ===========================
    Fixed Banner Navigation
 =========================== */
-nav {
+.sub-header-home nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -31,27 +31,46 @@ nav {
   background: rgba(20, 15, 13, 0.7);
   backdrop-filter: blur(6px);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 56px; /* consistent height */
+}
+
+/* Hamburger / menu toggle */
+.menu-toggle {
+  display: none; /* show with media query for mobile */
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffd36b;
 }
 
 /* Menu layout */
 nav ul {
   display: flex;
+  gap: 12px;        /* clean spacing between items */
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 /* Menu item */
 nav ul li {
   display: flex;
   align-items: center;
+  position: relative; /* for optional separator via pseudo-element */
 }
 
-/* Separator */
-nav ul li + li {
-  margin-left: 12px;
-  padding-left: 12px;
-  border-left: 1px solid #DFD6CC;
+/* Optional separator (if you want the line) */
+nav ul li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  height: 60%;
+  width: 1px;
+  background: #DFD6CC;
 }
 
 /* Link */
@@ -66,19 +85,18 @@ nav a {
   transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect (full box) */
-nav ul li:hover a {
+/* Hover effect */
+nav a:hover {
   background: rgba(255, 211, 107, 0.25);
   color: #1a1411;
   transform: translateY(-1px);
 }
 
-/* Active page state (optional but nice) */
+/* Active page state */
 nav a.active {
   background: rgba(255, 211, 107, 0.35);
   color: #1a1411;
 }
-
 /* ===========================
    Hero Section
 =========================== */
@@ -280,42 +298,28 @@ footer {
 =========================== */
 @media (max-width: 768px) {
 
-  /* Nav */
-  nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    padding: 0 5%;
+   .menu-toggle {
+    display: block;
   }
 
   nav ul {
-    display: none;
-    align-items:flex-start;
+    display: none; /* toggle via JS */
     flex-direction: column;
-    gap: 15px;
+    gap: 0;
+    background: rgba(20,15,13,0.9);
     position: absolute;
-    top: 70px;
-    left: 0;
-    background: rgba(20, 15, 13, 0.9);
-    padding: 15px 0;
-    z-index: 999;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 6px 6px;
   }
 
   nav ul.show {
     display: flex;
   }
 
-  nav ul li {
-    padding: 10px 0;
-    text-align: center;
-  }
-  nav ul li + li::before {
-    content: none;
-  }
-
-  .menu-toggle {
-    display: block;
+  nav ul li:not(:first-child)::before {
+    display: none; /* hide separator on mobile */
   }
 
   /* Sections */
