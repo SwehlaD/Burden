@@ -121,7 +121,7 @@ nav a.active {
 
 .hero-lettering {
   position: absolute; 
-  bottom: 20%;
+  bottom: 10%;
   left:50%;
   transform: translateX(-50%); 
   display: flex;
@@ -333,7 +333,7 @@ footer {
   .hero-lettering {
     transform: translateY(-30px);
     width: 90%;
-    bottom: 15%; 
+    bottom: 10%; 
   }
 
   .sub-header-home {
