@@ -112,11 +112,13 @@ nav a.active {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
+  background-image: banner_BM.jpg 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 40px;
+  margin-top:0; 
 }
 
 .hero-lettering {
