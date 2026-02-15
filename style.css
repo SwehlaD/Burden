@@ -161,11 +161,6 @@ nav a.active {
   line-height: 1.2;
 } 
 
-@supports (height: 100svh) {
-  .sub-header-home {
-    height: 100svh;
-  }
-}
 
 /* ===========================
    SECTIONS
