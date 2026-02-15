@@ -116,8 +116,8 @@ nav a.active {
   /* Flexbox Alignment */
   display: flex; 
   justify-content: center; /* Horizontal Center */
-  align-items: flex-end;    /* Vertical Bottom */
-  padding-bottom: 10%;   /* Adjusts height of text from bottom edge */
+  align-items: flex-start;    /* Vertical Bottom */
+  padding-bottom: 16.66%;   /* Adjusts height of text from bottom edge */
 }
 
 .hero-lettering {
@@ -129,6 +129,7 @@ nav a.active {
   text-align: center;      
   max-width: 90%;
   z-index: 2;
+  margin: 0; 
 }
 
 .hero-lettering h1,
@@ -323,7 +324,7 @@ footer {
 
   .sub-header-home {
     height: 85dvh; 
-    padding-bottom: 40px; /* Specific distance for smaller screens */
+    padding-bottom: 60px; /* Specific distance for smaller screens */
     align-items: flex-end; /* Keeps it at bottom on mobile */
   }
 
