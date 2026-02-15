@@ -112,9 +112,10 @@ nav a.active {
    HERO SECTION
 =========================== */
 .sub-header-home {
+  height: 100vh; 
   height: 100dvh; 
+  min-height: 100svh; 
   background-image: url("banner_BM.jpg");
-  background-attachment: scroll; 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
