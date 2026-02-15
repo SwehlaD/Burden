@@ -324,14 +324,16 @@ footer {
 
   .sub-header-home {
     height: 85dvh; 
-    padding-bottom: 60px; /* Specific distance for smaller screens */
-    align-items: flex-end; /* Keeps it at bottom on mobile */
+    display: flex;
+    align-items: flex-end; 
+    padding-bottom: 16.6%; 
+    background-position: center center; 
   }
 
   .hero-lettering {
     width: 95%;
     position: static; 
-    transform: none;
+    margin: 0 auto;
   }
   .platforms {
     flex-direction: column; 
