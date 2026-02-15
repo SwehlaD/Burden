@@ -203,6 +203,8 @@ section h2 {
 }
 
 .platforms a {
+  flex: 1;
+  min-width: max-content; 
   position: relative;
   margin-top: 20px;
   padding: 12px 30px;
