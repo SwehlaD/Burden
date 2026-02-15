@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  background: none;
+  background: ffd36b;
   color: var(--text-dark);
   line-height: 1.6;
 }
