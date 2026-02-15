@@ -25,12 +25,16 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  background: none;
+  background: var(--secondary-color); /* lighter fallback */
   color: var(--text-dark);
   line-height: 1.6;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /* ===========================
@@ -106,39 +110,56 @@ nav a.active {
    HERO SECTION
 =========================== */
 .sub-header-home {
-  height: 100dvh; 
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100svh;
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center center;
   background-size: cover;
   position: relative;
-  
-  /* Flexbox Alignment */
-  display: flex; 
-  justify-content: center; /* Horizontal Center */
-  align-items: flex-end;    /* Vertical Bottom */
-  padding-bottom: 15dvh;   /* Adjusts height of text from bottom edge */
+
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: flex-end;   /* vertical bottom */
+  padding-bottom: 16.66%;
+  overflow: hidden;          /* prevent Chrome collapse */
+  background-color: var(--secondary-color); /* light fallback */
+}
+
+/* Optional overlay */
+.sub-header-home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(243, 238, 233, 0.25);
+  z-index: 1;
 }
 
 .hero-lettering {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;   
+  gap: 0.5rem;
   font-family: var(--font-heading);
   color: var(--secondary-color);
-  text-align: center;      
+  text-align: center;
   max-width: 90%;
-  z-index: 2;
+  margin: 0 auto;
+}
+
+.hero-lettering h1,
+.hero-lettering p {
+  margin: 0;
 }
 
 .hero-lettering h1 {
-  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.05;
-  margin: 0;
 }
 
 .hero-lettering p {
@@ -146,7 +167,13 @@ nav a.active {
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1.2;
-  margin: 0;
+}
+
+/* Ensure stable height on Chrome mobile */
+@supports (height: 100svh) {
+  .sub-header-home {
+    height: 100svh;
+  }
 }
 
 /* ===========================
@@ -200,6 +227,8 @@ section h2 {
 }
 
 .platforms a {
+  flex: 1;
+  min-width: max-content;
   position: relative;
   margin-top: 20px;
   padding: 12px 30px;
@@ -210,10 +239,7 @@ section h2 {
   border: none;
   cursor: pointer;
   background: linear-gradient(145deg, #957A69, #705849 60%, #3b281c);
-  box-shadow:
-    0 4px 10px rgba(40,25,18,0.5),
-    inset 0 2px 4px rgba(255,255,255,0.3),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(40,25,18,0.5), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -3px 6px rgba(0,0,0,0.25);
   overflow: hidden;
   transition: all 0.35s ease;
 }
@@ -225,12 +251,7 @@ section h2 {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.7),
-    rgba(255,255,255,0.25),
-    transparent
-  );
+  background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,255,255,0.25), transparent);
   transform: skewX(-20deg);
 }
 
@@ -238,10 +259,7 @@ section h2 {
   color: #1a1411;
   background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
   transform: translateY(-2px);
-  box-shadow:
-    0 6px 14px rgba(40,25,18,0.6),
-    inset 0 2px 5px rgba(255,255,255,0.6),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 14px rgba(40,25,18,0.6), inset 0 2px 5px rgba(255,255,255,0.6), inset 0 -3px 6px rgba(0,0,0,0.25);
 }
 
 .platforms a:hover::before {
@@ -297,16 +315,15 @@ footer {
 
   nav ul {
     display: none;
-    align-items: flex-start;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0;
     background: var(--bg-nav-mobile);
     position: absolute;
     top: 100%;
     left: 0;
-    width: max-content;      
-    min-width: 120px;             
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    width: max-content;
+    border-radius: 0 0 6px 6px;
   }
 
   nav ul.show {
@@ -318,15 +335,29 @@ footer {
   }
 
   .sub-header-home {
-    height: 85dvh; 
-    padding-bottom: 40px; /* Specific distance for smaller screens */
-    align-items: flex-end; /* Keeps it at bottom on mobile */
+    height: 85dvh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 16.6%;
+    background-position: center center;
   }
 
   .hero-lettering {
     width: 95%;
-    /* Resetting any previous absolute/transform hacks */
-    position: static; 
-    transform: none;
+    position: static;
+    margin: 0 auto;
+  }
+
+  .platforms {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .platforms a {
+    width: 100%;
+    max-width: max-content;
+    margin-top: 10px;
+    flex: none;
   }
 }
