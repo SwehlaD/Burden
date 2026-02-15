@@ -117,7 +117,7 @@ nav a.active {
   display: flex; 
   justify-content: center; /* Horizontal Center */
   align-items: flex-end;    /* Vertical Bottom */
-  padding-bottom: 15dvh;   /* Adjusts height of text from bottom edge */
+  padding-bottom: 10dvh;   /* Adjusts height of text from bottom edge */
 }
 
 .hero-lettering {
