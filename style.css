@@ -110,7 +110,7 @@ nav a.active {
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
   position: relative;
   
   /* Flexbox Alignment */
