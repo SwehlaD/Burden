@@ -196,17 +196,18 @@ section h2 {
 =========================== */
 .platforms {
   margin-top: 15px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
-  justify-content: center;
+  display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .platforms a {
-  display: inline-flex;         
-  justify-content: center;     
-  align-items: center;         
-  padding: 12px 30px;
+  flex: 1 1 auto;              /* grow/shrink equally to fill space */
+  text-align: center;           /* center text horizontally */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;              /* vertical padding only, horizontal will adjust */
   color: var(--secondary-color);
   font-weight: 600;
   text-decoration: none;
@@ -220,9 +221,8 @@ section h2 {
     inset 0 -3px 6px rgba(0,0,0,0.25);
   overflow: hidden;
   transition: all 0.35s ease;
-  min-width: 0;                 
+  min-width: 0;                 /* ensures it can shrink if needed */
 }
-
 
 .platforms a::before {
   content: "";
