@@ -33,6 +33,12 @@ body {
   line-height: 1.6;
 }
 
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+
 /* ===========================
    NAVIGATION
 =========================== */
@@ -108,6 +114,7 @@ nav a.active {
 .sub-header-home {
   height: 100dvh; 
   background-image: url("banner_BM.jpg");
+  background-attachment: scroll; 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -151,6 +158,12 @@ nav a.active {
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1.2;
+} 
+
+@supports (height: 100svh) {
+  .sub-header-home {
+    height: 100svh;
+  }
 }
 
 /* ===========================
