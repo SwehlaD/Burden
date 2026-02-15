@@ -124,7 +124,7 @@ nav a.active {
   /* Flexbox Alignment */
   display: flex; 
   justify-content: center; /* Horizontal Center */
-  align-items: flex-bottom;    /* Vertical Bottom */
+  align-items: flex-end;    /* Vertical Bottom */
   padding-bottom: 16.66%;   /* Adjusts height of text from bottom edge */
 }
 
