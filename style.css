@@ -109,7 +109,7 @@ nav a.active {
   height: 100dvh; 
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center center;
   background-size: cover;
   position: relative;
   
