@@ -49,7 +49,7 @@ body {
   align-items: center;
   padding: 0 1rem;
   height: 56px;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, height 0.3s ease;
 }
 
 .menu-toggle {
@@ -106,33 +106,31 @@ nav a.active {
    HERO SECTION
 =========================== */
 .sub-header-home {
-  height: 100dvh; 
+  height: 100dvh;
   background-image: url("banner_BM.jpg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
   position: relative;
-  
-  /* Flexbox Alignment */
-  display: flex; 
-  justify-content: center; /* Horizontal Center */
-  align-items: flex-end;    /* Vertical Bottom */
-  padding-bottom: 15dvh;   /* Adjusts height of text from bottom edge */
+
+  display: flex;
+  justify-content: center; 
+  align-items: flex-end;  
+  padding-bottom: 15dvh;  
 }
 
 .hero-lettering {
   display: flex;
-  flex-direction: column; 
-  gap: 0;                
+  flex-direction: column;
+  gap: 0;
   font-family: var(--font-heading);
   color: var(--secondary-color);
   text-align: center;
   max-width: 90%;
-  margin: 0 auto;        
-  padding: 0;            
+  margin: 0 auto;
+  padding: 0;
   z-index: 2;
 }
-
 
 .hero-lettering h1 {
   font-family: var(--font-heading);
@@ -202,12 +200,12 @@ section h2 {
 }
 
 .platforms a {
-  flex: 1 1 auto;              /* grow/shrink equally to fill space */
-  text-align: center;           /* center text horizontally */
+  flex: 1 1 auto;
+  text-align: center;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 0;              /* vertical padding only, horizontal will adjust */
+  padding: 12px 0;
   color: var(--secondary-color);
   font-weight: 600;
   text-decoration: none;
@@ -221,9 +219,11 @@ section h2 {
     inset 0 -3px 6px rgba(0,0,0,0.25);
   overflow: hidden;
   transition: all 0.35s ease;
-  min-width: 0;                 /* ensures it can shrink if needed */
+  position: relative;
+  min-width: 0;
 }
 
+/* Shine animation */
 .platforms a::before {
   content: "";
   position: absolute;
@@ -256,6 +256,31 @@ section h2 {
 
 @keyframes shine {
   to { left: 130%; }
+}
+
+/* Scroll-interactive glow effect */
+.platforms a::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px 5px rgba(255, 211, 107, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.platforms a.glow::after {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.platforms a:hover.glow::after {
+  box-shadow: 0 0 25px 10px rgba(255, 211, 107, 0.6);
+  transform: scale(1.1);
 }
 
 /* ===========================
@@ -310,8 +335,8 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    width: max-content;      
-    min-width: 120px;             
+    width: max-content;
+    min-width: 120px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   }
 
@@ -324,9 +349,9 @@ footer {
   }
 
   .sub-header-home {
-    height: 85dvh; 
-    padding-bottom: 40px; /* Specific distance for smaller screens */
-    align-items: flex-end; /* Keeps it at bottom on mobile */
+    height: 85dvh;
+    padding-bottom: 40px;
+    align-items: flex-end;
   }
 
   .hero-lettering {
@@ -336,4 +361,9 @@ footer {
     position: static;
     transform: none;
   }
+
+  .hero-lettering h1 { font-size: clamp(1.5rem, 6vw, 2.8rem); }
+  .hero-lettering p { font-size: clamp(0.9rem, 4vw, 1.3rem); }
+
+  section { padding: 60px 5%; }
 }
