@@ -1,5 +1,5 @@
 // =========================
-// MENU TOGGLE
+// MENU TOGGLE (Mobile Navigation)
 // =========================
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
@@ -27,17 +27,19 @@ document.querySelectorAll("nav a").forEach(link => {
 // =========================
 // DEVOTION EXPAND / COLLAPSE (ONE OPEN AT A TIME)
 // =========================
-const devotionToggles = document.querySelectorAll(".devotion-toggle");
+const devotionToggles = document.querySelectorAll(".devotion-header");
 
 devotionToggles.forEach(button => {
   button.addEventListener("click", () => {
     const devotion = button.closest(".devotion");
     const isOpen = devotion.classList.contains("open");
 
+    // Close any open devotion section
     document.querySelectorAll(".devotion.open").forEach(openDevotion => {
       openDevotion.classList.remove("open");
     });
 
+    // Toggle the clicked devotion section
     if (!isOpen) {
       devotion.classList.add("open");
     }
@@ -45,14 +47,13 @@ devotionToggles.forEach(button => {
 });
 
 // =========================
-// DYNAMIC BACKGROUND GRADIENT
+// DYNAMIC BACKGROUND GRADIENT (on scroll)
 // =========================
 let ticking = false;
 
 function updateGradient() {
   const scrollY = window.scrollY;
-  const scrollHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
   if (scrollHeight <= 0) return;
 
@@ -86,7 +87,7 @@ function updateGradient() {
 }
 
 // =========================
-// PLATFORM BUTTON GLOW
+// PLATFORM BUTTON GLOW (when in view)
 // =========================
 const releases = document.querySelectorAll(".release-card");
 
@@ -106,7 +107,7 @@ function updateButtonGlow() {
 }
 
 // =========================
-// SCROLL HANDLER
+// SCROLL HANDLER (runs every time the user scrolls)
 // =========================
 window.addEventListener("scroll", () => {
   if (!ticking) {
@@ -120,7 +121,8 @@ window.addEventListener("scroll", () => {
 });
 
 // =========================
-// INIT
+// INIT (initial setup for scroll effects)
 // =========================
 updateGradient();
 updateButtonGlow();
+
