@@ -300,12 +300,44 @@ section h2 {
   max-width: 700px;
   border-radius: 8px;
   text-align: left;
+  overflow: hidden; 
+}
+
+.devotion-header {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .devotion h1,
 .devotion h2,
 .devotion h3 {
+  margin: 0; 
   color: var(--primary-color);
+}
+
+.devotion .arrow {
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.devotion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  margin-top: 0;
+}
+
+.devotion.open .devotion-body {
+  max-height: 10000px; 
+  margin-top: 1rem;
+}
+
+.devotion.open .arrow {
+  transform: rotate(45deg); 
 }
 
 /* ===========================
