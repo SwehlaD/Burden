@@ -180,7 +180,7 @@ section h2 {
 
 .card,
 .release-card {
-  background: var(--bg-dark);
+  background: transperent;
   padding: 20px;
   margin: 25px auto;
   border-radius: 8px;
