@@ -154,13 +154,11 @@ nav a.active {
    SECTIONS
 =========================== */
 section {
-  color: var(--secondary-color);
   padding: 90px 10%;
   text-align: center;
 }
 
 section h2 {
-  color: var(--primary-color);
   margin-bottom: 20px;
   font-weight: 700;
 }
