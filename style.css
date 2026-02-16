@@ -310,6 +310,7 @@ section h2 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: content-max; 
 }
 
 .devotion h1,
