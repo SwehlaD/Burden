@@ -161,6 +161,7 @@ section {
 section h2 {
   margin-bottom: 20px;
   font-weight: 700;
+  color: var(--secondary-color);  /* White lettering */
 }
 
 .Quote {
@@ -188,154 +189,43 @@ section h2 {
 }
 
 /* ===========================
-   PLATFORM BUTTONS
+   PLATFORM BUTTONS (SVG version)
 =========================== */
 .platforms {
   margin-top: 15px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center; /* Center the SVG buttons */
 }
 
 .platforms a {
-  flex: 1 1 auto;
   text-align: center;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 0;
-  color: var(--secondary-color);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
+  padding: 12px;
+  background: none; /* Remove background */
   border: none;
   cursor: pointer;
-  background: linear-gradient(145deg, #957A69, #705849 60%, #3b281c);
-  box-shadow:
-    0 4px 10px rgba(40,25,18,0.5),
-    inset 0 2px 4px rgba(255,255,255,0.3),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
-  overflow: hidden;
-  transition: all 0.35s ease;
-  position: relative;
-  min-width: 0;
-}
-
-/* Shine animation */
-.platforms a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.7),
-    rgba(255,255,255,0.25),
-    transparent
-  );
-  transform: skewX(-20deg);
-}
-
-.platforms a:hover {
-  color: #1a1411;
-  background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 14px rgba(40,25,18,0.6),
-    inset 0 2px 5px rgba(255,255,255,0.6),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
-}
-
-.platforms a:hover::before {
-  animation: shine 0.8s ease forwards;
-}
-
-@keyframes shine {
-  to { left: 130%; }
-}
-
-/* Scroll-interactive glow effect */
-.platforms a::after {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px 5px rgba(255, 211, 107, 0.4);
-  opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-}
-
-.platforms a.glow::after {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.platforms a:hover.glow::after {
-  box-shadow: 0 0 25px 10px rgba(255, 211, 107, 0.6);
-  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }
 
 /* ===========================
-   TEXT & DEVOTIONS
+   PLATFORM SVG ICONS (SVG as Buttons)
 =========================== */
-.text {
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1rem;
+.platforms img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
 }
 
-.devotion {
-  background: var(--bg-dark-light);
-  color: var(--secondary-color);
-  padding: 10px;
-  margin: 15px auto;
-  max-width: 700px;
-  border-radius: 8px;
-  text-align: left;
-  overflow: hidden; 
+.platforms a:hover img {
+  transform: scale(1.1);
 }
 
-.devotion-header {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: content-max; 
-}
-
-.devotion h1,
-.devotion h2,
-.devotion h3 {
-  margin: 0; 
-  color: var(--primary-color);
-}
-
-.devotion .arrow {
-  font-size: 1.6rem;
-  transition: transform 0.3s ease;
-}
-
-.devotion-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease;
-  margin-top: 0;
-}
-
-.devotion.open .devotion-body {
-  margin-top: 1rem;
-}
-
-.devotion.open .arrow {
-  transform: rotate(45deg); 
+.platforms a:hover {
+  transform: translateY(-3px);
 }
 
 /* ===========================
