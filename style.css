@@ -295,8 +295,8 @@ section h2 {
 .devotion {
   background: var(--bg-dark-light);
   color: var(--secondary-color);
-  padding: 25px;
-  margin: 25px auto;
+  padding: 5px;
+  margin: 5px auto;
   max-width: 700px;
   border-radius: 8px;
   text-align: left;
