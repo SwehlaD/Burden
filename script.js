@@ -17,30 +17,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// =========================
-// SMOOTH SCROLL WITH OFFSET
-// =========================
+// Close menu when a nav link is clicked (mobile)
 document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", e => {
-    const targetId = link.getAttribute("href");
-
-    if (!targetId.startsWith("#")) return;
-
-    e.preventDefault();
-    const target = document.getElementById(targetId.slice(1));
-    if (!target) return;
-
-    const headerHeight = nav.offsetHeight;
-    const elementTop = target.getBoundingClientRect().top;
-    const scrollPosition =
-      window.pageYOffset + elementTop - headerHeight;
-
-    window.scrollTo({
-      top: scrollPosition,
-      behavior: "smooth"
-    });
-
-    // Close mobile menu
+  link.addEventListener("click", () => {
     navLinks.classList.remove("show");
   });
 });
@@ -55,12 +34,10 @@ devotionToggles.forEach(button => {
     const devotion = button.closest(".devotion");
     const isOpen = devotion.classList.contains("open");
 
-    // Close all devotions
     document.querySelectorAll(".devotion.open").forEach(openDevotion => {
       openDevotion.classList.remove("open");
     });
 
-    // Re-open only if it was previously closed
     if (!isOpen) {
       devotion.classList.add("open");
     }
@@ -147,8 +124,3 @@ window.addEventListener("scroll", () => {
 // =========================
 updateGradient();
 updateButtonGlow();
-
-// Initialize on page load
-updateGradient();
-updateButtonGlow();
-
