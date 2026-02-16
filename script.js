@@ -46,12 +46,24 @@ document.querySelectorAll("nav a").forEach(link => {
 });
 
 // =========================
-// DEVOTION EXPAND / COLLAPSE
+// DEVOTION EXPAND / COLLAPSE (ONE OPEN AT A TIME)
 // =========================
-document.querySelectorAll(".devotion-toggle").forEach(button => {
+const devotionToggles = document.querySelectorAll(".devotion-toggle");
+
+devotionToggles.forEach(button => {
   button.addEventListener("click", () => {
     const devotion = button.closest(".devotion");
-    devotion.classList.toggle("open");
+    const isOpen = devotion.classList.contains("open");
+
+    // Close all devotions
+    document.querySelectorAll(".devotion.open").forEach(openDevotion => {
+      openDevotion.classList.remove("open");
+    });
+
+    // Re-open only if it was previously closed
+    if (!isOpen) {
+      devotion.classList.add("open");
+    }
   });
 });
 
