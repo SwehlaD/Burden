@@ -1,5 +1,5 @@
 /* ===========================
-   CSS VARIABLES
+   CSS VARIABLES 
 =========================== */
 :root {
   --primary-color: #ffd36b;
@@ -14,7 +14,7 @@
 }
 
 /* ===========================
-   GLOBAL STYLES
+   GLOBAL STYLES 
 =========================== */
 * {
   margin: 0;
@@ -34,7 +34,7 @@ body {
 }
 
 /* ===========================
-   NAVIGATION
+   NAVIGATION 
 =========================== */
 .sub-header-home nav {
   position: fixed;
@@ -103,7 +103,7 @@ nav a.active {
 }
 
 /* ===========================
-   HERO SECTION
+   HERO SECTION 
 =========================== */
 .sub-header-home {
   height: 100dvh;
@@ -112,11 +112,10 @@ nav a.active {
   background-position: center bottom;
   background-size: cover;
   position: relative;
-
   display: flex;
-  justify-content: center; 
-  align-items: flex-end;  
-  padding-bottom: 10dvh;  
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10dvh;
 }
 
 .hero-lettering {
@@ -151,7 +150,7 @@ nav a.active {
 }
 
 /* ===========================
-   SECTIONS
+   SECTIONS 
 =========================== */
 section {
   color: var(--secondary-color);
@@ -165,134 +164,134 @@ section h2 {
   font-weight: 700;
 }
 
-.Quote {
-  font-style: italic;
-}
-
 /* ===========================
-   GRID CARDS
+   MUSIC CAROUSEL 
 =========================== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.card,
-.release-card {
-  background: var(--bg-dark);
-  padding: 20px;
-  margin: 25px auto;
-  border-radius: 8px;
-  max-width: 600px;
-  transition: transform 0.2s ease;
-}
-
-/* ===========================
-   PLATFORM BUTTONS
-=========================== */
-.platforms {
-  margin-top: 15px;
+.music-scroll {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 40px 15%; /* Adjusted for 3D room */
+  cursor: grab;
+  perspective: 1500px; /* Added for depth */
 }
 
-.platforms a {
-  flex: 1 1 auto;
-  text-align: center;
-  display: inline-flex;
+.music-scroll:active {
+  cursor: grabbing;
+}
+
+.music-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.release-card {
+  flex: 0 0 auto;
+  width: 280px;
+  height: 400px;
+  perspective: 1500px;
+  scroll-snap-align: center; /* Ensures locking to middle */
+  transition: transform 0.4s ease, z-index 0.4s ease, opacity 0.4s ease;
+  position: relative;
+}
+
+/* The "Prominent" center card */
+.release-card.showcase {
+  z-index: 10;
+  transform: scale(1.1) translateZ(100px);
+  opacity: 1;
+}
+
+/* The side cards going to the back */
+.release-card:not(.showcase) {
+  z-index: 1;
+  transform: scale(0.85) translateZ(-80px);
+  opacity: 0.8;
+  
+}
+
+/* Flip container */
+.album-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* Manual Flip Hook */
+.release-card.flipped .album-inner {
+  transform: rotateY(180deg) !important;
+}
+
+/* Front & back faces (Exactly yours) */
+.album-front,
+.album-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.album-front {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  transform: rotateY(0deg);
+}
+
+.album-back {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 12px 0;
-  color: var(--secondary-color);
+  text-align: center;
+  padding: 15px;
+  transform: rotateY(180deg);
+}
+
+.album-front img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.album-front h3 {
+  text-align: center;
+  margin-top: 5px;
   font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(145deg, #957A69, #705849 60%, #3b281c);
-  box-shadow:
-    0 4px 10px rgba(40,25,18,0.5),
-    inset 0 2px 4px rgba(255,255,255,0.3),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
-  overflow: hidden;
-  transition: all 0.35s ease;
-  position: relative;
-  min-width: 0;
-}
-
-/* Shine animation */
-.platforms a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.7),
-    rgba(255,255,255,0.25),
-    transparent
-  );
-  transform: skewX(-20deg);
-}
-
-.platforms a:hover {
-  color: #1a1411;
-  background: linear-gradient(145deg, #ffd36b, #f5b942 60%, #d99c2b);
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 14px rgba(40,25,18,0.6),
-    inset 0 2px 5px rgba(255,255,255,0.6),
-    inset 0 -3px 6px rgba(0,0,0,0.25);
-}
-
-.platforms a:hover::before {
-  animation: shine 0.8s ease forwards;
-}
-
-@keyframes shine {
-  to { left: 130%; }
-}
-
-/* Scroll-interactive glow effect */
-.platforms a::after {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px 5px rgba(255, 211, 107, 0.4);
-  opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-}
-
-.platforms a.glow::after {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.platforms a:hover.glow::after {
-  box-shadow: 0 0 25px 10px rgba(255, 211, 107, 0.6);
-  transform: scale(1.1);
+  color: var(--secondary-color);
 }
 
 /* ===========================
-   TEXT & DEVOTIONS
+   DEVOTIONS 
 =========================== */
-.text {
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1rem;
+#devotions {
+  display: none; 
+}
+
+#devotions.active {
+  display: block;
 }
 
 .devotion {
+  display: none;
   background: var(--bg-dark-light);
   color: var(--secondary-color);
   padding: 5px;
@@ -300,7 +299,11 @@ section h2 {
   max-width: 700px;
   border-radius: 8px;
   text-align: left;
-  overflow: hidden; 
+  overflow: hidden;
+}
+
+.devotion.active {
+  display: block;
 }
 
 .devotion-header {
@@ -310,13 +313,12 @@ section h2 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: content-max; 
 }
 
 .devotion h1,
 .devotion h2,
 .devotion h3 {
-  margin: 0; 
+  margin: 0;
   color: var(--primary-color);
 }
 
@@ -328,7 +330,7 @@ section h2 {
 .devotion-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.6s ease;
+  transition: max-height 0.6s ease, margin-top 0.6s ease;
   margin-top: 0;
 }
 
@@ -336,12 +338,8 @@ section h2 {
   margin-top: 1rem;
 }
 
-.devotion.open .arrow {
-  transform: rotate(45deg); 
-}
-
 /* ===========================
-   FOOTER
+   FOOTER 
 =========================== */
 footer {
   color: var(--secondary-color);
@@ -351,18 +349,16 @@ footer {
 }
 
 /* ===========================
-   MOBILE STYLES
+   MOBILE STYLES (ADDITIONAL RESPONSIVENESS)
 =========================== */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
-
   nav ul {
     display: none;
-    align-items: flex-start;
     flex-direction: column;
-    gap: 0;
+    align-items: flex-start;
     background: var(--bg-nav-mobile);
     position: absolute;
     top: 100%;
@@ -371,31 +367,13 @@ footer {
     min-width: 120px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   }
-
-  nav ul.show {
-    display: flex;
-  }
-
-  nav ul li:not(:first-child)::before {
-    display: none;
-  }
-
-  .sub-header-home {
-    height: 85dvh;
-    padding-bottom: 40px;
-    align-items: flex-end;
-  }
-
-  .hero-lettering {
-    width: 95%;
-    gap: 0;
-    padding: 0;
-    position: static;
-    transform: none;
-  }
-
+  nav ul.show { display: flex; }
+  nav ul li:not(:first-child)::before { display: none; }
+  .sub-header-home { height: 85dvh; padding-bottom: 40px; align-items: flex-end; }
+  .hero-lettering { width: 95%; gap: 0; padding: 0; }
   .hero-lettering h1 { font-size: clamp(1.5rem, 6vw, 2.8rem); }
   .hero-lettering p { font-size: clamp(0.9rem, 4vw, 1.3rem); }
-
   section { padding: 60px 5%; }
+  .release-card { width: 180px; height: 250px; }
+  .album-front img { height: 70%; }
 }
