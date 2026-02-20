@@ -196,20 +196,20 @@ section h2 {
   position: relative;
 }
 
-/* The "Prominent" center card */
+/* The "Prominent" center card
 .release-card.showcase {
   z-index: 10;
   transform: scale(1.1) translateZ(100px);
   opacity: 1;
 }
 
-/* The side cards going to the back */
+ The side cards going to the back 
 .release-card:not(.showcase) {
   z-index: 1;
   transform: scale(0.85) translateZ(-80px);
   opacity: 0.8;
   
-}
+} */
 
 /* Flip container */
 .album-inner {
@@ -277,6 +277,69 @@ section h2 {
   margin-top: 5px;
   font-weight: 600;
   color: var(--secondary-color);
+}
+.album-back .music-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px; /* space between each logo+text */
+  margin-top: 15px;
+}
+
+.album-back .music-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.album-back .music-links a img {
+  width: 40px; /* uniform size for all logos */
+  height: 40px;
+}
+
+.album-back .music-links a:hover {
+  transform: scale(1.05);
+  color: var(--primary-color);
+}
+/* ===========================
+   CAROUSEL CONTROLS
+=========================== */
+.carousel-controls {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  pointer-events: auto;
+  background: rgba(20, 15, 13, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 211, 107, 0.35);
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 20px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 211, 107, 0.25);
+  transform: scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
 }
 
 /* ===========================
